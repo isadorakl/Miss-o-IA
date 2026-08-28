@@ -1,8 +1,6 @@
 
    
- 
-
-body {
+ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
@@ -40,3 +38,14 @@ h1 {
     color: #fff;
     transition: background-color 0.3s;
 }
+
+.alternativa:hover {
+    background-color: #0056b3;
+}
+
+.caixa-resultado {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+
