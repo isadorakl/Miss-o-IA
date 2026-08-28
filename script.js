@@ -77,38 +77,43 @@ function mostrarResposta(index) {
   }
 }
 
-// Função que cria uma história com base nas respostas
+// Função que cria uma história com personagens e anos
 function gerarHistoria() {
   const resposta1 = respostasUsuario[0];
   const resposta2 = respostasUsuario[1];
   const resposta3 = respostasUsuario[2];
 
+  // Personagem e cenário inicial
+  let personagem = resposta1 === 0 ? 'Lucas, um jovem curioso' : 'Maria, uma inovadora sonhadora';
+  let anoAtual = 2023;
   let historia = '';
 
-  if (resposta1 === 0) {
-    historia += "Você ficou assustado com a tecnologia e acha que ela pode ser perigosa. ";
-  } else {
-    historia += "Você ficou maravilhado com a tecnologia e acredita no seu potencial de transformação. ";
-  }
+  // Início da história
+  historia += `${personagem} vivia em um mundo onde a tecnologia evoluía rapidamente. Em ${anoAtual}, ele/ela começou a explorar uma nova IA revolucionária. `;
 
+  // Decide o próximo passo no tempo
   if (resposta2 === 0) {
-    historia += "Você acredita que limites éticos são essenciais para evitar abusos. ";
+    historia += `Em ${anoAtual + 5}, ${personagem.split(',')[0]} acreditava que limites éticos eram essenciais para garantir um futuro seguro. `;
   } else {
-    historia += "Você pensa que a liberdade da IA pode trazer avanços sem limites, sem restrições. ";
+    historia += `Em ${anoAtual + 5}, ${personagem.split(',')[0]} pensava que a liberdade da IA traria avanços sem limites, mesmo com riscos. `;
   }
 
+  // Uso na rotina
   if (resposta3 === 0) {
-    historia += "Você quer usar a IA para facilitar sua rotina e valoriza a praticidade. ";
+    historia += `No ano de ${anoAtual + 10}, eles/elas usaram a IA para transformar suas vidas diárias, tornando tudo mais prático e eficiente. `;
   } else {
-    historia += "Você prefere fazer tudo manualmente e gosta do desafio de resolver por si mesmo.";
+    historia += `No ano de ${anoAtual + 10}, preferiram continuar a fazer as coisas manualmente, valorizando o desafio e a autonomia. `;
   }
+
+  // Conclusão
+  historia += `Assim, ao longo dos anos, ${personagem} enfrentou escolhas que moldaram seu futuro e o mundo ao seu redor.`;
 
   // Exibir história final
-  perguntaElemento.textContent = 'Sua história:';
+  perguntaElemento.textContent = 'Sua história de vida com a IA:';
   textoResultado.textContent = historia;
   alternativasContainer.innerHTML = '';
   resultadoDiv.style.display = 'block';
 }
- 
+
 // Inicia o quiz
 carregarPergunta();
